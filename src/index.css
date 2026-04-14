@@ -6,32 +6,32 @@
 
 @layer base {
   :root {
-    --background: 222 30% 8%;
-    --foreground: 40 20% 92%;
+    --background: 152 50% 12%;
+    --foreground: 40 20% 95%;
 
-    --card: 222 25% 12%;
-    --card-foreground: 40 20% 92%;
+    --card: 152 35% 16%;
+    --card-foreground: 40 20% 95%;
 
-    --popover: 222 25% 12%;
-    --popover-foreground: 40 20% 92%;
+    --popover: 152 35% 16%;
+    --popover-foreground: 40 20% 95%;
 
     --primary: 40 65% 50%;
-    --primary-foreground: 222 30% 8%;
+    --primary-foreground: 152 50% 12%;
 
-    --secondary: 222 20% 18%;
-    --secondary-foreground: 40 20% 92%;
+    --secondary: 152 30% 20%;
+    --secondary-foreground: 40 20% 95%;
 
-    --muted: 222 20% 16%;
-    --muted-foreground: 220 15% 55%;
+    --muted: 152 30% 20%;
+    --muted-foreground: 152 20% 75%;
 
     --accent: 40 65% 50%;
-    --accent-foreground: 222 30% 8%;
+    --accent-foreground: 152 50% 12%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 222 20% 20%;
-    --input: 222 20% 20%;
+    --border: 152 25% 24%;
+    --input: 152 25% 24%;
     --ring: 40 65% 50%;
 
     --radius: 0.5rem;
@@ -39,17 +39,17 @@
     --gold: 40 65% 50%;
     --gold-light: 40 70% 65%;
     --gold-dark: 40 60% 35%;
-    --navy: 222 30% 8%;
-    --navy-light: 222 25% 14%;
-    --navy-lighter: 222 20% 20%;
+    --navy: 152 50% 12%;
+    --navy-light: 152 35% 16%;
+    --navy-lighter: 152 30% 24%;
 
-    --sidebar-background: 222 25% 10%;
-    --sidebar-foreground: 40 20% 92%;
+    --sidebar-background: 152 40% 14%;
+    --sidebar-foreground: 40 20% 95%;
     --sidebar-primary: 40 65% 50%;
-    --sidebar-primary-foreground: 222 30% 8%;
-    --sidebar-accent: 222 20% 18%;
-    --sidebar-accent-foreground: 40 20% 92%;
-    --sidebar-border: 222 20% 20%;
+    --sidebar-primary-foreground: 152 50% 12%;
+    --sidebar-accent: 152 30% 20%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 152 25% 24%;
     --sidebar-ring: 40 65% 50%;
 
     font-family: 'Inter', sans-serif;

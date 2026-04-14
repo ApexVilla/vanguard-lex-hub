@@ -27,11 +27,12 @@ const Navbar = () => {
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 lg:px-8">
-        <a href="#inicio" className="font-serif-display text-xl md:text-2xl font-bold tracking-wide">
-          <span className="text-gold-gradient">AP</span>
-          <span className="text-foreground ml-2 text-sm md:text-base font-sans-body font-light tracking-widest uppercase">
-            Despacho de Abogados
-          </span>
+        <a href="#inicio" className="flex items-center gap-2">
+          <img 
+            src="/logo.jpeg" 
+            alt="Vanguard Lex Hub Logo" 
+            className="h-16 md:h-20 w-auto object-contain rounded-sm"
+          />
         </a>
 
         {/* Desktop */}

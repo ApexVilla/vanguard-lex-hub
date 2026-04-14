@@ -3,12 +3,13 @@ const Footer = () => (
     <div className="container mx-auto px-4 lg:px-8">
       <div className="flex flex-col md:flex-row items-center justify-between gap-6">
         <div>
-          <span className="font-serif-display text-lg font-bold">
-            <span className="text-gold-gradient">AP</span>
-            <span className="text-foreground ml-2 text-xs font-sans-body font-light tracking-widest uppercase">
-              Despacho de Abogados
-            </span>
-          </span>
+          <a href="#inicio" className="flex items-center gap-2">
+            <img 
+              src="/logo.jpeg" 
+              alt="Vanguard Lex Hub Logo" 
+              className="h-14 md:h-16 w-auto object-contain rounded-sm opacity-80 hover:opacity-100 transition-opacity duration-300"
+            />
+          </a>
         </div>
         <p className="text-xs font-sans-body text-muted-foreground text-center">
           © {new Date().getFullYear()} AP Despacho de Abogados. Todos los derechos reservados.
