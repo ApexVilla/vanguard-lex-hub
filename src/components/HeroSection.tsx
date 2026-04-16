@@ -1,68 +1,87 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import heroBg from "@/assets/hero-bg.jpg";
+import { RevealText } from "@/components/ui/RevealText";
 
 const HeroSection = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0">
+    <section id="inicio" ref={ref} className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Parallax */}
+      <motion.div 
+        className="absolute inset-0 w-full h-[120%]"
+        style={{ y: backgroundY, opacity }}
+      >
         <img src={heroBg} alt="Justicia y ley" className="w-full h-full object-cover" width={1920} height={1080} />
         <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-background/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent" />
-      </div>
+      </motion.div>
 
       <div className="relative z-10 container mx-auto px-4 lg:px-8 pt-20">
         <div className="max-w-3xl">
           <motion.div
-            initial={{ opacity: 0, y: 60, filter: "blur(12px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
+            animate={{ opacity: 1, clipPath: "inset(0 0% 0 0)" }}
+            transition={{ duration: 1.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="inline-block mb-6 px-4 py-1.5 border border-primary/40 rounded-sm">
-              <span className="text-xs font-sans-body font-semibold tracking-[0.25em] uppercase text-primary">
-                Abogados de Confianza en Venezuela
+            <div className="inline-block mb-8 px-5 py-2 border border-primary/30 rounded-none bg-background/20 backdrop-blur-sm">
+              <span className="text-[11px] md:text-xs font-sans-body font-semibold tracking-[0.3em] uppercase text-primary/90">
+                Excelencia Jurídica
               </span>
             </div>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 60, filter: "blur(12px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1.2, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-6"
-          >
-            Defendemos sus derechos con{" "}
-            <span className="text-gold-gradient">experiencia</span> y{" "}
-            <span className="text-gold-gradient">compromiso</span>
-          </motion.h1>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight mb-8">
+            <RevealText text="Defendemos sus" delay={0.3} className="block" />
+            <RevealText text="derechos con" delay={0.4} className="block" />
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.2, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              className="text-gold-gradient italic font-serif-display font-medium pr-2"
+            >
+              experiencia
+            </motion.span>
+          </h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 1.2, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="text-lg md:text-xl text-muted-foreground font-sans-body font-light leading-relaxed mb-10 max-w-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
+            className="text-lg md:text-xl text-muted-foreground font-sans-body font-light leading-relaxed mb-12 max-w-xl opacity-90"
           >
-            Soluciones legales estratégicas respaldadas por años de experiencia profesional. Su tranquilidad es nuestra prioridad.
+            Soluciones legales estratégicas respaldadas por años de trayectoria. Construimos relaciones basadas en la absoluta transparencia.
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col sm:flex-row gap-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, delay: 1.6, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col sm:flex-row gap-6"
           >
-            <a
+            <motion.a
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               href="#contacto"
-              className="inline-flex items-center justify-center px-8 py-4 bg-primary text-primary-foreground font-sans-body font-semibold text-sm tracking-widest uppercase rounded-sm hover:bg-gold-light hover:scale-105 transition-all duration-300 gold-border-glow"
+              className="inline-flex items-center justify-center px-10 py-4 bg-primary text-primary-foreground font-sans-body font-semibold text-xs tracking-[0.2em] uppercase rounded-none hover:bg-gold-light transition-colors duration-500 gold-border-glow"
             >
               Solicitar Asesoría
-            </a>
-            <a
+            </motion.a>
+            <motion.a
+              whileHover={{ borderBottomColor: "hsl(var(--gold))", color: "hsl(var(--gold))" }}
               href="#servicios"
-              className="inline-flex items-center justify-center px-8 py-4 border border-foreground/20 text-foreground font-sans-body font-medium text-sm tracking-widest uppercase rounded-sm hover:border-primary hover:text-primary hover:scale-105 transition-all duration-300"
+              className="inline-flex items-center justify-center px-6 py-4 border-b border-transparent text-foreground/80 font-sans-body font-medium text-xs tracking-[0.2em] uppercase hover:text-primary transition-colors duration-500"
             >
               Nuestros Servicios
-            </a>
+            </motion.a>
           </motion.div>
         </div>
       </div>
@@ -71,14 +90,14 @@ const HeroSection = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        transition={{ delay: 2.2, duration: 2 }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2"
       >
-        <div className="w-5 h-8 border-2 border-foreground/30 rounded-full flex justify-center">
+        <div className="w-[1px] h-16 bg-white/10 relative overflow-hidden">
           <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-1 h-2 bg-primary rounded-full mt-1.5"
+            animate={{ y: ["-100%", "200%"] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-transparent via-primary to-transparent"
           />
         </div>
       </motion.div>

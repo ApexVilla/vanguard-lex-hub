@@ -31,7 +31,7 @@ const Navbar = () => {
           <img 
             src="/logo.jpeg" 
             alt="Vanguard Lex Hub Logo" 
-            className="h-16 md:h-20 w-auto object-contain rounded-sm"
+            className="h-24 md:h-32 w-auto object-contain rounded-sm"
           />
         </a>
 
