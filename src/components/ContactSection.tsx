@@ -132,55 +132,27 @@ const ContactSection = () => {
               <div className="absolute top-0 right-0 p-4 opacity-10">
                 <Globe className="w-16 h-16 text-white" />
               </div>
-              <h4 className="text-primary font-bold text-xs tracking-[0.2em] uppercase mb-4 font-sans-body">Inversión de Asesoría</h4>
-              <div className="flex items-baseline gap-2 mb-6">
-                <span className="text-4xl md:text-5xl font-bold font-serif-display text-white">50$</span>
-                <span className="text-white/40 text-sm font-sans-body">BCV por hora</span>
-              </div>
-              <ul className="space-y-4 mb-8">
+              <h4 className="text-primary font-bold text-xs tracking-[0.2em] uppercase mb-8 font-sans-body">Métodos de Pagos</h4>
+              
+              <ul className="space-y-6 mb-10">
                 {[
-                  { icon: ShieldCheck, text: "Asesoría vía Online" },
-                  { icon: MapPin, text: "Asesoría en nuestro despacho" },
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-4 text-sm font-medium text-white/90 font-sans-body">
-                    <item.icon className="w-4 h-4 text-primary" strokeWidth={2.5} />
-                    {item.text}
+                  "EFECTIVO",
+                  "TRANSFERENCIA",
+                  "PAGO MÓVIL",
+                  "ZELLE",
+                  "MERCANTIL PANAMÁ"
+                ].map((method, idx) => (
+                  <li key={idx} className="flex items-center gap-4 text-sm font-medium text-white font-sans-body">
+                    <div className="w-2 h-2 rounded-full bg-primary" />
+                    {method}
                   </li>
                 ))}
               </ul>
               
-              <div className="pt-6 border-t border-white/10">
-                <div className="space-y-6">
-                  <div>
-                    <h5 className="text-[10px] font-bold tracking-[0.1em] uppercase text-primary mb-3 font-sans-body">Vía Pago Móvil (Venezuela)</h5>
-                    <div className="space-y-2 font-sans-body text-sm">
-                      <div className="flex justify-between">
-                        <span className="font-semibold text-white">0424-5619862</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="pt-4 border-t border-white/5">
-                    <h5 className="text-[10px] font-bold tracking-[0.1em] uppercase text-white/40 mb-3 font-sans-body">Otros Métodos de Pago</h5>
-                    <div className="space-y-2 font-sans-body text-sm">
-                      <div className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                        <span className="text-white/80">Binance / USDT</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
-                        <span className="text-white/80">Mercantil Panamá</span>
-                      </div>
-                      <p className="text-[10px] text-white/40 italic mt-2">
-                        (Solicitar detalles de cuenta vía WhatsApp)
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <p className="mt-8 text-[10px] italic text-white/40 flex items-center gap-2 bg-white/5 p-3 rounded border border-white/5">
-                  <CreditCard className="w-3 h-3 text-primary" />
-                  Por favor, enviar captura del pago una vez realizado.
+              <div className="pt-8 border-t border-white/10">
+                <p className="text-[10px] italic text-white/40 flex items-center gap-2 bg-white/5 p-4 rounded border border-white/10 leading-relaxed">
+                  <CreditCard className="w-3 h-3 text-primary flex-shrink-0" />
+                  Por favor, solicitar detalles de cuenta vía WhatsApp y enviar captura del pago una vez realizado.
                 </p>
               </div>
             </motion.div>

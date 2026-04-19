@@ -39,14 +39,22 @@ const Footer = () => (
         <div className="lg:col-span-4 space-y-8">
           <Link 
             to="/" 
-            className="group inline-block"
+            className="group flex items-center gap-6"
           >
             <motion.img 
               whileHover={{ scale: 1.02 }}
-              src="/logo.jpeg" 
+              src="/logo.png" 
               alt="Despacho de Abogados AP" 
-              className="h-24 w-auto object-contain rounded shadow-lg grayscale group-hover:grayscale-0 transition-all duration-700"
+              className="h-32 w-auto object-contain rounded shadow-lg transition-all duration-700"
             />
+            <div className="flex flex-col">
+              <span className="text-3xl font-serif-display font-bold text-gold-gradient tracking-tight leading-none uppercase">
+                ÁNGEL PÉREZ
+              </span>
+              <span className="text-[10px] font-sans-body font-bold text-white/40 tracking-[0.4em] uppercase mt-2">
+                Despacho de Abogados
+              </span>
+            </div>
           </Link>
           <div className="space-y-4 max-w-sm">
             <h4 className="text-xs font-bold tracking-[0.3em] uppercase text-primary">Justicia & Honor</h4>

@@ -37,20 +37,28 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 flex items-center ${
-        scrolled ? "bg-background/90 backdrop-blur-xl border-b border-border/50 h-16" : "bg-transparent h-20"
+        scrolled ? "bg-background/90 backdrop-blur-xl border-b border-border/50 h-20" : "bg-transparent h-28"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 lg:px-8 h-full">
         <Link 
           to="/" 
           onClick={() => handleNavClick("/")}
-          className="flex items-center h-full overflow-hidden"
+          className="flex items-center gap-5 transition-transform duration-500 hover:scale-[1.02]"
         >
           <img 
-            src="/logo.jpeg" 
+            src="/logo.png" 
             alt="Despacho de Abogados AP" 
-            className="h-full w-auto object-contain transition-all duration-500 scale-[1.3] origin-center"
+            className={`w-auto object-contain transition-all duration-500 ${scrolled ? "h-14" : "h-20"}`}
           />
+          <div className="flex flex-col">
+            <span className={`font-serif-display font-bold text-gold-gradient tracking-tight transition-all duration-500 leading-none ${scrolled ? "text-xl" : "text-2xl md:text-3xl"}`}>
+              ÁNGEL PÉREZ
+            </span>
+            <span className={`font-sans-body font-bold text-white/40 tracking-[0.4em] uppercase transition-all duration-500 ${scrolled ? "text-[8px] mt-1" : "text-[10px] mt-2"}`}>
+              Despacho de Abogados
+            </span>
+          </div>
         </Link>
 
         {/* Desktop */}
