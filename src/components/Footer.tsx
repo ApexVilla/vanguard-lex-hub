@@ -1,5 +1,6 @@
 import { Instagram, Phone, Mail, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const socialLinks = [
   {
@@ -35,19 +36,18 @@ const Footer = () => (
     <div className="container mx-auto px-4 lg:px-8 relative z-10">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20">
         
-        {/* Column 1: Brand & Values */}
         <div className="lg:col-span-4 space-y-8">
-          <motion.a 
-            href="#inicio" 
+          <Link 
+            to="/" 
             className="group inline-block"
-            whileHover={{ scale: 1.02 }}
           >
-            <img 
+            <motion.img 
+              whileHover={{ scale: 1.02 }}
               src="/logo.jpeg" 
               alt="Vanguard Lex Hub Logo" 
               className="h-24 w-auto object-contain rounded shadow-lg grayscale group-hover:grayscale-0 transition-all duration-700"
             />
-          </motion.a>
+          </Link>
           <div className="space-y-4 max-w-sm">
             <h4 className="text-xs font-bold tracking-[0.3em] uppercase text-primary">Justicia & Honor</h4>
             <p className="text-sm text-muted-foreground/60 font-sans-body font-light leading-relaxed italic">
@@ -62,15 +62,15 @@ const Footer = () => (
             Navegación
           </h4>
           <ul className="space-y-4">
-            {["Inicio", "Nosotros", "Servicios", "Contacto"].map((item) => (
+            {["Inicio", "Nosotros", "Servicios", "Opiniones", "Contacto"].map((item) => (
               <li key={item}>
-                <a 
-                  href={`#${item.toLowerCase()}`} 
+                <Link 
+                  to={item === "Opiniones" ? "/opiniones" : `/#${item.toLowerCase()}`}
                   className="text-xs font-sans-body font-light text-muted-foreground hover:text-primary transition-colors flex items-center gap-2 group"
                 >
                   <span className="w-1 h-px bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
                   {item}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
@@ -84,12 +84,12 @@ const Footer = () => (
           <ul className="space-y-4">
             {["Derecho Civil", "Derecho de Familia", "Derecho Penal", "Derecho Laboral", "Violencia de Género"].map((item) => (
               <li key={item}>
-                <a 
-                  href="#servicios" 
+                <Link 
+                  to="/#servicios" 
                   className="text-xs font-sans-body font-light text-muted-foreground hover:text-primary transition-colors block"
                 >
                   {item}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
