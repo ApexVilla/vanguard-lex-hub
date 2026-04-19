@@ -36,20 +36,20 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-background/90 backdrop-blur-xl border-b border-border/50 py-3" : "bg-transparent py-5"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 flex items-center ${
+        scrolled ? "bg-background/90 backdrop-blur-xl border-b border-border/50 h-16" : "bg-transparent h-20"
       }`}
     >
-      <div className="container mx-auto flex items-center justify-between px-4 lg:px-8">
+      <div className="container mx-auto flex items-center justify-between px-4 lg:px-8 h-full">
         <Link 
           to="/" 
           onClick={() => handleNavClick("/")}
-          className="flex items-center gap-2"
+          className="flex items-center h-full overflow-hidden"
         >
           <img 
             src="/logo.jpeg" 
-            alt="Vanguard Lex Hub Logo" 
-            className="h-24 md:h-32 w-auto object-contain rounded-sm"
+            alt="Despacho de Abogados AP" 
+            className="h-full w-auto object-contain transition-all duration-500 scale-[1.3] origin-center"
           />
         </Link>
 

@@ -25,7 +25,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/30 to-transparent" />
       </motion.div>
 
-      <div className="relative z-10 container mx-auto px-4 lg:px-8 pt-20">
+      <div className="relative z-10 container mx-auto px-4 lg:px-8 pt-40 lg:pt-48 pb-20">
         <div className="max-w-3xl">
           <motion.div
             initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
@@ -40,12 +40,13 @@ const HeroSection = () => {
           </motion.div>
 
           <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] tracking-tight mb-8">
-            <RevealText text="Defendemos sus" delay={0.3} className="block" />
-            <RevealText text="derechos con" delay={0.4} className="block" />
+            <RevealText text="Defendemos tus" delay={0.3} className="block" />
+            <RevealText text="derechos, tu libertad" delay={0.4} className="block" />
+            <RevealText text="y futuro con" delay={0.5} className="block" />
             <motion.span 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.2, delay: 1.5, ease: [0.16, 1, 0.3, 1] }}
               className="text-gold-gradient italic font-serif-display font-medium pr-2"
             >
               experiencia

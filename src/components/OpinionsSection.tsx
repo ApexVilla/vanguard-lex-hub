@@ -12,8 +12,8 @@ const OpinionsSection = () => {
   const latestOpinions = opinionsData.slice(0, 3);
 
   return (
-    <section id="opiniones" className="py-24 lg:py-40 bg-background relative overflow-hidden" ref={ref}>
-      {/* Fondo decorativo */}
+    <section id="opiniones" className="py-24 lg:py-40 bg-white relative overflow-hidden text-slate-900" ref={ref}>
+      {/* Fondo decorativo sutil */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -mr-64 -mt-64" />
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
@@ -31,7 +31,7 @@ const OpinionsSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight"
+              className="text-4xl md:text-5xl lg:text-6xl font-medium leading-tight text-slate-900"
             >
               Opiniones <span className="text-gold-gradient italic font-serif-display font-medium pr-2">Jurisprudenciales</span>
             </motion.h2>
@@ -64,26 +64,26 @@ const OpinionsSection = () => {
               className="group"
             >
               <Link to={`/opiniones/${opinion.slug}`} className="block h-full">
-                <div className="glass-card h-full p-8 rounded-2xl flex flex-col transition-all duration-500 hover:border-primary/50 hover:-translate-y-2">
+                <div className="bg-navy/90 backdrop-blur-xl border border-primary/20 h-full p-8 rounded-2xl flex flex-col transition-all duration-500 hover:border-primary/60 hover:-translate-y-4 shadow-[0_40px_80px_rgba(0,0,0,0.7)] group-hover:shadow-primary/40">
                   <div className="flex items-center justify-between mb-8">
                     <div className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-primary group-hover:scale-110 transition-transform duration-500">
                       <BookOpen size={18} strokeWidth={1.5} />
                     </div>
-                    <span className="text-[9px] uppercase tracking-widest font-bold text-muted-foreground bg-white/5 px-3 py-1 rounded-full border border-border/50">
+                    <span className="text-[9px] uppercase tracking-widest font-bold text-muted-foreground bg-white/5 px-3 py-1 rounded-full border border-white/10">
                       {opinion.category}
                     </span>
                   </div>
                   
-                  <h3 className="text-xl font-bold font-serif-display mb-4 leading-tight group-hover:text-primary transition-colors flex-grow">
+                  <h3 className="text-xl font-bold font-serif-display mb-4 leading-tight group-hover:text-primary transition-colors flex-grow text-white">
                     {opinion.title}
                   </h3>
                   
-                  <p className="text-sm text-muted-foreground font-light leading-relaxed mb-8 line-clamp-3">
+                  <p className="text-sm text-white/60 font-light leading-relaxed mb-8 line-clamp-3">
                     {opinion.excerpt}
                   </p>
                   
-                  <div className="flex items-center justify-between pt-6 border-t border-border/30">
-                    <div className="flex items-center gap-4 text-[9px] text-muted-foreground font-bold uppercase tracking-wider">
+                  <div className="flex items-center justify-between pt-6 border-t border-white/10">
+                    <div className="flex items-center gap-4 text-[9px] text-white/40 font-bold uppercase tracking-wider">
                       <span className="flex items-center gap-1.5"><Calendar size={12} className="text-primary/60" /> {opinion.date}</span>
                       <span className="flex items-center gap-1.5"><Clock size={12} className="text-primary/60" /> {opinion.readTime}</span>
                     </div>

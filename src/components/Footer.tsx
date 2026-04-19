@@ -44,7 +44,7 @@ const Footer = () => (
             <motion.img 
               whileHover={{ scale: 1.02 }}
               src="/logo.jpeg" 
-              alt="Vanguard Lex Hub Logo" 
+              alt="Despacho de Abogados AP" 
               className="h-24 w-auto object-contain rounded shadow-lg grayscale group-hover:grayscale-0 transition-all duration-700"
             />
           </Link>
@@ -112,7 +112,7 @@ const Footer = () => (
                 <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-primary/30 transition-all">
                   <Mail size={14} className="text-muted-foreground group-hover:text-primary" />
                 </div>
-                <span className="text-sm font-sans-body text-muted-foreground group-hover:text-foreground transition-colors">contacto@vanguardlex.com</span>
+                <span className="text-sm font-sans-body text-muted-foreground group-hover:text-foreground transition-colors">contacto@despachodeabogadosap.com</span>
               </a>
             </div>
 
@@ -139,7 +139,7 @@ const Footer = () => (
       {/* Bottom Copyright Bar */}
       <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 opacity-40 grayscale-[0.5]">
         <p className="text-[9px] font-sans-body tracking-[0.2em] uppercase text-center md:text-left">
-          © {new Date().getFullYear()} AP Abogados & Asociados. Todos los derechos reservados.
+          © {new Date().getFullYear()} AP Abogados. Todos los derechos reservados.
         </p>
         <div className="flex items-center gap-8">
           <a href="#" className="text-[9px] font-sans-body tracking-[0.2em] uppercase hover:text-primary transition-colors text-center md:text-left">Privacidad</a>

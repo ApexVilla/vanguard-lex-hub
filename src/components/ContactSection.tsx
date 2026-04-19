@@ -18,9 +18,9 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contacto" className="py-24 lg:py-40 bg-secondary/30 relative overflow-hidden" ref={ref}>
-      {/* Decorative background element */}
-      <div className="absolute top-1/4 -right-20 w-96 h-96 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
+    <section id="contacto" className="py-24 lg:py-32 relative overflow-hidden bg-white" ref={ref}>
+      {/* BG decoration */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-slate-50" />
       
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <motion.div
@@ -32,9 +32,12 @@ const ContactSection = () => {
           <span className="text-[11px] md:text-xs font-sans-body font-semibold tracking-[0.3em] uppercase text-primary mb-6 block">
             Asesoría Profesional
           </span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-serif-display tracking-tight">
-            Hablemos sobre su <span className="text-gold-gradient italic pr-2">caso</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-slate-900 font-serif-display">
+            ¿Necesita <span className="text-gold-gradient">asesoría legal</span>?
           </h2>
+          <p className="text-xl text-slate-600 font-sans-body font-light max-w-2xl mx-auto mb-10">
+            Estamos listos para ayudarle. Contáctenos hoy y reciba una orientación profesional sobre su caso.
+          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 max-w-7xl mx-auto">
@@ -44,14 +47,14 @@ const ContactSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="glass-card rounded-2xl p-8 lg:p-12 relative overflow-hidden group"
+              className="bg-navy-light border border-white/10 rounded-2xl p-8 lg:p-12 relative overflow-hidden group"
             >
               <div className="relative z-10">
-                <h3 className="text-2xl font-bold mb-8 font-serif-display border-b border-border/40 pb-4">Enviar Solicitud</h3>
+                <h3 className="text-2xl font-bold mb-8 font-serif-display border-b border-white/10 pb-4 text-white">Enviar Solicitud</h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
-                      <label className="block text-[10px] font-sans-body font-bold tracking-[0.2em] uppercase text-muted-foreground/80 mb-3">
+                      <label className="block text-[10px] font-sans-body font-bold tracking-[0.2em] uppercase text-white/40 mb-3">
                         Nombre Completo
                       </label>
                       <input
@@ -59,12 +62,12 @@ const ContactSection = () => {
                         required
                         value={formData.nombre}
                         onChange={(e) => setFormData({ ...formData, nombre: e.target.value })}
-                        className="w-full bg-white/5 border border-border/40 rounded-none px-5 py-4 text-foreground font-sans-body text-sm focus:outline-none focus:border-primary transition-all duration-500"
+                        className="w-full bg-white/5 border border-white/10 rounded-none px-5 py-4 text-white font-sans-body text-sm focus:outline-none focus:border-primary transition-all duration-500"
                         placeholder="Ej. Juan Pérez"
                       />
                     </div>
                     <div>
-                      <label className="block text-[10px] font-sans-body font-bold tracking-[0.2em] uppercase text-muted-foreground/80 mb-3">
+                      <label className="block text-[10px] font-sans-body font-bold tracking-[0.2em] uppercase text-white/40 mb-3">
                         Teléfono de Contacto
                       </label>
                       <input
@@ -72,13 +75,13 @@ const ContactSection = () => {
                         required
                         value={formData.telefono}
                         onChange={(e) => setFormData({ ...formData, telefono: e.target.value })}
-                        className="w-full bg-white/5 border border-border/40 rounded-none px-5 py-4 text-foreground font-sans-body text-sm focus:outline-none focus:border-primary transition-all duration-500"
+                        className="w-full bg-white/5 border border-white/10 rounded-none px-5 py-4 text-white font-sans-body text-sm focus:outline-none focus:border-primary transition-all duration-500"
                         placeholder="0424 000 0000"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-[10px] font-sans-body font-bold tracking-[0.2em] uppercase text-muted-foreground/80 mb-3">
+                    <label className="block text-[10px] font-sans-body font-bold tracking-[0.2em] uppercase text-white/40 mb-3">
                       Correo Electrónico
                     </label>
                     <input
@@ -86,12 +89,12 @@ const ContactSection = () => {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-white/5 border border-border/40 rounded-none px-5 py-4 text-foreground font-sans-body text-sm focus:outline-none focus:border-primary transition-all duration-500"
+                      className="w-full bg-white/5 border border-white/10 rounded-none px-5 py-4 text-white font-sans-body text-sm focus:outline-none focus:border-primary transition-all duration-500"
                       placeholder="correo@ejemplo.com"
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-sans-body font-bold tracking-[0.2em] uppercase text-muted-foreground/80 mb-3">
+                    <label className="block text-[10px] font-sans-body font-bold tracking-[0.2em] uppercase text-white/40 mb-3">
                       Descripción del Caso
                     </label>
                     <textarea
@@ -99,7 +102,7 @@ const ContactSection = () => {
                       rows={4}
                       value={formData.mensaje}
                       onChange={(e) => setFormData({ ...formData, mensaje: e.target.value })}
-                      className="w-full bg-white/5 border border-border/40 rounded-none px-5 py-4 text-foreground font-sans-body text-sm focus:outline-none focus:border-primary transition-all duration-500 resize-none"
+                      className="w-full bg-white/5 border border-white/10 rounded-none px-5 py-4 text-white font-sans-body text-sm focus:outline-none focus:border-primary transition-all duration-500 resize-none"
                       placeholder="¿En qué podemos ayudarle?"
                     />
                   </div>
@@ -107,7 +110,7 @@ const ContactSection = () => {
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
                     type="submit"
-                    className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-primary text-primary-foreground font-sans-body font-bold text-xs tracking-[0.25em] uppercase rounded-none transition-all duration-500 gold-border-glow group"
+                    className="w-full flex items-center justify-center gap-3 px-8 py-5 bg-primary text-white font-sans-body font-bold text-xs tracking-[0.25em] uppercase rounded-none transition-all duration-500"
                   >
                     <Send className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     Enviar mensaje vía WhatsApp
@@ -124,46 +127,59 @@ const ContactSection = () => {
               initial={{ opacity: 0, x: 30 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="glass-card rounded-2xl p-8 border-primary/20 bg-gradient-to-br from-primary/5 to-transparent relative overflow-hidden"
+              className="bg-navy-light rounded-2xl p-8 border border-white/10 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-4 opacity-10">
-                <Globe className="w-16 h-16" />
+                <Globe className="w-16 h-16 text-white" />
               </div>
-              <h4 className="text-primary font-bold text-xs tracking-[0.2em] uppercase mb-4">Inversión de Asesoría</h4>
+              <h4 className="text-primary font-bold text-xs tracking-[0.2em] uppercase mb-4 font-sans-body">Inversión de Asesoría</h4>
               <div className="flex items-baseline gap-2 mb-6">
-                <span className="text-4xl md:text-5xl font-bold font-serif-display">50$</span>
-                <span className="text-muted-foreground text-sm font-sans-body">BCV por hora</span>
+                <span className="text-4xl md:text-5xl font-bold font-serif-display text-white">50$</span>
+                <span className="text-white/40 text-sm font-sans-body">BCV por hora</span>
               </div>
               <ul className="space-y-4 mb-8">
                 {[
                   { icon: ShieldCheck, text: "Asesoría vía Online" },
                   { icon: MapPin, text: "Asesoría en nuestro despacho" },
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-4 text-sm font-medium text-foreground/90 font-sans-body">
+                  <li key={idx} className="flex items-center gap-4 text-sm font-medium text-white/90 font-sans-body">
                     <item.icon className="w-4 h-4 text-primary" strokeWidth={2.5} />
                     {item.text}
                   </li>
                 ))}
               </ul>
               
-              <div className="pt-6 border-t border-border/40">
-                <h5 className="text-[10px] font-bold tracking-[0.1em] uppercase text-muted-foreground mb-4">Datos de Pago Móvil</h5>
-                <div className="space-y-3 font-sans-body text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground font-light">Teléfono:</span>
-                    <span className="font-semibold">0424-5619862</span>
+              <div className="pt-6 border-t border-white/10">
+                <div className="space-y-6">
+                  <div>
+                    <h5 className="text-[10px] font-bold tracking-[0.1em] uppercase text-primary mb-3 font-sans-body">Vía Pago Móvil (Venezuela)</h5>
+                    <div className="space-y-2 font-sans-body text-sm">
+                      <div className="flex justify-between">
+                        <span className="font-semibold text-white">0424-5619862</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground font-light">Documento:</span>
-                    <span className="font-semibold">V15.669.570</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span className="text-muted-foreground font-light">Bancos:</span>
-                    <span className="font-semibold">Venezuela / Mercantil</span>
+
+                  <div className="pt-4 border-t border-white/5">
+                    <h5 className="text-[10px] font-bold tracking-[0.1em] uppercase text-white/40 mb-3 font-sans-body">Otros Métodos de Pago</h5>
+                    <div className="space-y-2 font-sans-body text-sm">
+                      <div className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        <span className="text-white/80">Binance / USDT</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                        <span className="text-white/80">Mercantil Panamá</span>
+                      </div>
+                      <p className="text-[10px] text-white/40 italic mt-2">
+                        (Solicitar detalles de cuenta vía WhatsApp)
+                      </p>
+                    </div>
                   </div>
                 </div>
-                <p className="mt-6 text-[10px] italic text-muted-foreground flex items-center gap-2">
-                  <CreditCard className="w-3 h-3" />
+
+                <p className="mt-8 text-[10px] italic text-white/40 flex items-center gap-2 bg-white/5 p-3 rounded border border-white/5">
+                  <CreditCard className="w-3 h-3 text-primary" />
                   Por favor, enviar captura del pago una vez realizado.
                 </p>
               </div>
@@ -172,24 +188,24 @@ const ContactSection = () => {
             {/* General Info */}
             <div className="space-y-6">
               {[
-                { icon: Phone, label: "Contacto Directo", value: "0424-5619862" },
-                { icon: Mail, label: "Correo Corporativo", value: "contacto@vanguardlex.com" },
+                { icon: Phone, label: "Atención al Despacho", value: "0424-5619862" },
+                { icon: Mail, label: "Correo Corporativo", value: "contacto@despachodeabogadosap.com" },
               ].map((item, idx) => (
                 <motion.div
                   key={item.label}
                   initial={{ opacity: 0, y: 10 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 1, delay: 0.6 + idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex items-center gap-5 p-6 glass-card rounded-xl hover:border-primary/30 transition-all duration-500"
+                  className="flex items-center gap-5 p-6 bg-navy-light border border-white/10 rounded-xl hover:border-primary/30 transition-all duration-500"
                 >
-                  <div className="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center flex-shrink-0 bg-primary/5">
+                  <div className="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center flex-shrink-0 bg-white/5">
                     <item.icon className="w-5 h-5 text-primary" strokeWidth={1.5} />
                   </div>
                   <div>
-                    <div className="text-[10px] font-bold tracking-[0.1em] uppercase text-muted-foreground/60 mb-1">
+                    <div className="text-[10px] font-bold tracking-[0.1em] uppercase text-white/40 mb-1">
                       {item.label}
                     </div>
-                    <div className="text-base font-sans-body font-medium text-foreground">{item.value}</div>
+                    <div className="text-base font-sans-body font-medium text-white">{item.value}</div>
                   </div>
                 </motion.div>
               ))}

@@ -6,7 +6,7 @@ const CTASection = () => {
   const inView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden" ref={ref}>
+    <section className="py-24 lg:py-32 relative overflow-hidden bg-white" ref={ref}>
       {/* BG decoration */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-primary/10" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-3xl" />
@@ -17,10 +17,10 @@ const CTASection = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-slate-900 font-serif-display">
             ¿Necesita <span className="text-gold-gradient">asesoría legal</span>?
           </h2>
-          <p className="text-xl text-muted-foreground font-sans-body font-light max-w-2xl mx-auto mb-10">
+          <p className="text-xl text-slate-600 font-sans-body font-light max-w-2xl mx-auto mb-10">
             Estamos listos para ayudarle. Contáctenos hoy y reciba una orientación profesional sobre su caso.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -31,7 +31,7 @@ const CTASection = () => {
               Contactar Ahora
             </a>
             <a
-              href="https://wa.me/584121234567"
+              href="https://wa.me/584245619862"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-10 py-4 border border-green-500/40 text-green-400 font-sans-body font-medium text-sm tracking-widest uppercase rounded-sm hover:bg-green-500/10 transition-all duration-300"

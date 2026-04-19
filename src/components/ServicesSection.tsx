@@ -37,7 +37,7 @@ const ServicesSection = () => {
   }, [selectedService]);
 
   return (
-    <section id="servicios" className="py-24 lg:py-40 bg-background relative overflow-hidden" ref={ref}>
+    <section id="servicios" className="py-24 lg:py-40 bg-white relative overflow-hidden" ref={ref}>
       <motion.div style={{ y: sectionY }} className="container mx-auto px-4 lg:px-8 relative z-10">
         
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8" ref={titleRef}>
@@ -54,7 +54,7 @@ const ServicesSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isTitleInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight"
+              className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight text-slate-900"
             >
               Experticia <span className="text-gold-gradient italic font-serif-display font-medium pr-2">integral</span>
             </motion.h2>
@@ -66,7 +66,7 @@ const ServicesSection = () => {
             transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="md:max-w-xs"
           >
-            <p className="text-sm text-muted-foreground font-sans-body font-light leading-relaxed">
+            <p className="text-sm text-slate-600 font-sans-body font-light leading-relaxed">
               Abordamos cada especialidad con el máximo rigor técnico para proteger sus intereses en las principales ramas del derecho venezolano.
             </p>
           </motion.div>
@@ -84,8 +84,8 @@ const ServicesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: (i % 4) * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className={`glass-card rounded-xl p-8 group transition-all duration-500 hover:border-primary/50 relative overflow-hidden flex flex-col ${isOffset ? 'lg:translate-y-8' : ''}`}
-                whileHover={{ y: isOffset ? 26 : -6 }}
+                className={`bg-navy/90 backdrop-blur-xl border border-primary/20 rounded-xl p-8 group transition-all duration-500 hover:border-primary/60 relative overflow-hidden flex flex-col shadow-[0_40px_80px_rgba(0,0,0,0.7)] hover:shadow-primary/40 ${isOffset ? 'lg:translate-y-8' : ''}`}
+                whileHover={{ y: isOffset ? 26 : -6, scale: 1.02 }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
@@ -95,8 +95,8 @@ const ServicesSection = () => {
                     <service.icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-500" strokeWidth={1.5} />
                   </div>
                 </div>
-                <h3 className="text-xl font-bold mb-3 tracking-tight font-serif-display group-hover:text-primary transition-colors">{service.title}</h3>
-                <p className="text-muted-foreground font-sans-body font-light leading-relaxed text-sm mb-6 flex-grow">
+                <h3 className="text-xl font-bold mb-3 tracking-tight font-serif-display group-hover:text-primary transition-colors text-white">{service.title}</h3>
+                <p className="text-white/60 font-sans-body font-light leading-relaxed text-sm mb-6 flex-grow">
                   {service.desc}
                 </p>
 
