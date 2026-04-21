@@ -18,7 +18,7 @@ const ServicesSection = () => {
   const ref = useRef(null);
   const titleRef = useRef(null);
   const isTitleInView = useInView(titleRef, { once: true, margin: "-100px" });
-  
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -26,7 +26,6 @@ const ServicesSection = () => {
 
   const sectionY = useTransform(scrollYProgress, [0, 1], ["0px", "-50px"]);
 
-  // Prevenir scroll cuando el modal está abierto
   useEffect(() => {
     if (selectedService) {
       document.body.style.overflow = "hidden";
@@ -39,10 +38,10 @@ const ServicesSection = () => {
   return (
     <section id="servicios" className="py-24 lg:py-40 bg-white relative overflow-hidden" ref={ref}>
       <motion.div style={{ y: sectionY }} className="container mx-auto px-4 lg:px-8 relative z-10">
-        
+
         <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8" ref={titleRef}>
           <div className="max-w-2xl">
-            <motion.span 
+            <motion.span
               initial={{ opacity: 0, clipPath: "inset(0 100% 0 0)" }}
               animate={isTitleInView ? { opacity: 1, clipPath: "inset(0 0% 0 0)" } : {}}
               transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
@@ -50,16 +49,17 @@ const ServicesSection = () => {
             >
               Áreas de Práctica
             </motion.span>
-            <motion.h2 
+            <motion.h2
               initial={{ opacity: 0, y: 30 }}
               animate={isTitleInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="text-4xl md:text-5xl lg:text-5xl font-bold leading-tight text-slate-900"
             >
-              Experticia <span className="text-gold-gradient italic font-serif-display font-medium pr-2">integral</span>
+              Experticia{" "}
+              <span className="font-cormorant italic text-gold-gradient font-light pr-2">integral</span>
             </motion.h2>
           </div>
-          
+
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={isTitleInView ? { opacity: 1, x: 0 } : {}}
@@ -76,6 +76,7 @@ const ServicesSection = () => {
           {services.map((service, i) => {
             const isOffset = i % 2 !== 0;
             const hasDetails = !!servicesData[service.title];
+            const num = String(i + 1).padStart(2, "0");
 
             return (
               <motion.div
@@ -84,32 +85,41 @@ const ServicesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: (i % 4) * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                className={`bg-navy/90 backdrop-blur-xl border border-primary/20 rounded-xl p-8 group transition-all duration-500 hover:border-primary/60 relative overflow-hidden flex flex-col shadow-[0_40px_80px_rgba(0,0,0,0.7)] hover:shadow-primary/40 ${isOffset ? 'lg:translate-y-8' : ''}`}
+                className={`bg-navy/90 backdrop-blur-xl border border-primary/20 rounded-2xl p-8 group transition-all duration-500 hover:border-primary/60 relative overflow-hidden flex flex-col shadow-[0_40px_80px_rgba(0,0,0,0.7)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.7),0_0_40px_hsl(var(--gold)/0.15)] noise-overlay gradient-border-card ${isOffset ? "lg:translate-y-8" : ""}`}
                 whileHover={{ y: isOffset ? 26 : -6, scale: 1.02 }}
               >
+                {/* Internal glow */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
-                <div className="w-12 h-12 mb-8 relative">
+                {/* Article number */}
+                <div className="opinion-number absolute top-4 right-5 text-7xl">{num}</div>
+
+                {/* Icon */}
+                <div className="w-12 h-12 mb-8 relative z-10">
                   <div className="absolute inset-0 bg-primary/10 rounded-sm rotate-3 group-hover:rotate-6 transition-transform duration-500" />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <service.icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-500" strokeWidth={1.5} />
                   </div>
                 </div>
-                <h3 className="text-xl font-bold mb-3 tracking-tight font-serif-display group-hover:text-primary transition-colors text-white">{service.title}</h3>
-                <p className="text-white/60 font-sans-body font-light leading-relaxed text-sm mb-6 flex-grow">
+
+                <h3 className="text-xl font-bold mb-3 tracking-tight font-serif-display group-hover:text-primary transition-colors text-white relative z-10">
+                  {service.title}
+                </h3>
+                <p className="text-white/60 font-sans-body font-light leading-relaxed text-sm mb-6 flex-grow relative z-10">
                   {service.desc}
                 </p>
 
                 {hasDetails && (
-                  <button 
+                  <button
                     onClick={() => setSelectedService(servicesData[service.title])}
-                    className="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-primary group/btn w-fit"
+                    className="flex items-center gap-2 text-[10px] font-bold tracking-[0.2em] uppercase text-primary group/btn w-fit relative z-10"
                   >
-                    Ver detalles 
+                    Ver detalles
                     <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
                   </button>
                 )}
-                
+
+                {/* Bottom line */}
                 <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-700 ease-in-out" />
               </motion.div>
             );
@@ -117,7 +127,7 @@ const ServicesSection = () => {
         </div>
       </motion.div>
 
-      {/* Modal de Detalles */}
+      {/* Service Detail Modal */}
       <AnimatePresence>
         {selectedService && (
           <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 md:p-8">
@@ -128,7 +138,7 @@ const ServicesSection = () => {
               onClick={() => setSelectedService(null)}
               className="absolute inset-0 bg-background/80 backdrop-blur-md"
             />
-            
+
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -148,7 +158,7 @@ const ServicesSection = () => {
                     </h3>
                   </div>
                 </div>
-                <button 
+                <button
                   onClick={() => setSelectedService(null)}
                   className="w-10 h-10 rounded-full flex items-center justify-center hover:bg-white/5 transition-colors border border-border/50 text-muted-foreground hover:text-foreground"
                 >
@@ -157,10 +167,10 @@ const ServicesSection = () => {
               </div>
 
               {/* Content */}
-              <div className="p-6 md:p-10 overflow-y-auto custom-scrollbar">
+              <div className="p-6 md:p-10 overflow-y-auto">
                 <div className="max-w-3xl mx-auto space-y-12">
                   <div className="space-y-4">
-                    <p className="text-lg font-sans-body font-light text-foreground/80 leading-relaxed italic border-l-2 border-primary/30 pl-6">
+                    <p className="text-lg font-cormorant font-light text-foreground/80 leading-relaxed italic border-l-2 border-primary/30 pl-6">
                       "{selectedService.intro}"
                     </p>
                   </div>
@@ -208,10 +218,10 @@ const ServicesSection = () => {
                 <p className="text-[10px] font-sans-body text-muted-foreground uppercase tracking-widest">
                   Protegiendo sus derechos en Venezuela
                 </p>
-                <a 
+                <a
                   href="#contacto"
                   onClick={() => setSelectedService(null)}
-                  className="w-full sm:w-auto px-8 py-3 bg-primary text-primary-foreground font-sans-body font-bold text-[10px] tracking-[0.2em] uppercase hover:bg-gold-light transition-all duration-300 text-center"
+                  className="w-full sm:w-auto px-8 py-3 bg-primary text-primary-foreground font-sans-body font-bold text-[10px] tracking-[0.2em] uppercase hover:bg-gold-light transition-all duration-300 text-center rounded-sm"
                 >
                   Consultar sobre este área
                 </a>

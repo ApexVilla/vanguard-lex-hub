@@ -10,26 +10,25 @@ const LocationSection = () => {
     {
       city: "Barinas",
       address: "Avenida Cuatricentenaria, Edificio Orchán, Oficina N° 7",
-      reference: "Frente al Palacio de Justicia",
+      reference: "Diagonal al Palacio de Justicia del estado Barinas",
       image: "/LOCA1.png",
       type: "Sede Principal",
-      icon: Landmark
+      icon: Landmark,
     },
     {
-      city: "Atención Ejecutiva",
-      address: "Ambiente de alta confidencialidad y prestigio",
-      reference: "Espacios diseñados para la estrategia legal",
+      city: "Alto Barinas",
+      address: "Alto Barinas Norte",
+      reference: "Cerca del Circuito Judicial del estado Barinas",
       image: "/LOCA1.1.png",
-      type: "Oficina de Consultoría",
-      icon: Building2
-    }
+      type: "Oficina Ejecutiva",
+      icon: Building2,
+    },
   ];
 
   return (
     <section id="ubicacion" className="py-24 lg:py-40 bg-white relative overflow-hidden" ref={ref}>
-      {/* Decorative background elements */}
       <div className="absolute top-1/2 left-0 w-64 h-64 bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
-      
+
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -41,7 +40,8 @@ const LocationSection = () => {
             Presencia Estratégica
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-serif-display tracking-tight text-slate-900">
-            Nuestra <span className="text-gold-gradient italic pr-2">ubicación</span>
+            Nuestra{" "}
+            <span className="font-cormorant italic text-gold-gradient font-light pr-2">ubicación</span>
           </h2>
           <p className="text-slate-600 font-sans-body font-light text-lg md:text-xl leading-relaxed">
             Visítenos en nuestro despacho para una atención personalizada y profesional.
@@ -55,58 +55,57 @@ const LocationSection = () => {
               initial={{ opacity: 0, y: 40 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1, delay: idx * 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative perspective-2000"
+              className="group relative gradient-border-card"
             >
-              <motion.div 
-                whileHover={{ 
-                  rotateY: idx === 0 ? 8 : -8, 
-                  rotateX: 4, 
-                  scale: 1.04,
-                  translateZ: 20
+              <motion.div
+                whileHover={{
+                  rotateY: idx === 0 ? 6 : -6,
+                  rotateX: 3,
+                  scale: 1.03,
                 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 style={{ transformStyle: "preserve-3d" }}
-                className="relative overflow-hidden rounded-[32px] border border-primary/20 bg-navy/85 backdrop-blur-xl shadow-[0_40px_80px_rgba(0,0,0,0.6)] hover:shadow-primary/40 transition-all duration-700 group"
+                className="relative overflow-hidden rounded-[28px] border border-primary/20 bg-navy/85 backdrop-blur-xl shadow-[0_40px_80px_rgba(0,0,0,0.6)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.6),0_0_40px_hsl(var(--gold)/0.15)] transition-all duration-700"
               >
-                <div className="aspect-[16/10] overflow-hidden relative" style={{ transform: "translateZ(10px)" }}>
-                  <motion.img 
-                    src={loc.image} 
-                    alt={loc.city} 
-                    whileHover={{ scale: 1.15, translateZ: 30 }}
+                <div className="aspect-[16/10] overflow-hidden relative">
+                  <motion.img
+                    src={loc.image}
+                    alt={loc.city}
+                    whileHover={{ scale: 1.12 }}
                     transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-1000"
+                    className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-1000"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/20 to-transparent" />
-                  <div className="absolute top-6 left-6 z-20" style={{ transform: "translateZ(40px)" }}>
+                  <div className="absolute top-6 left-6 z-20">
                     <span className="px-5 py-2 rounded-xl bg-primary text-[10px] font-bold uppercase tracking-[0.2em] text-white shadow-[0_10px_20px_rgba(0,0,0,0.3)]">
                       {loc.type}
                     </span>
                   </div>
                 </div>
-                
-                <div className="p-8 lg:p-12 relative" style={{ transform: "translateZ(30px)" }}>
-                  <div className="flex items-start gap-8">
-                    <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-500 shadow-xl">
-                      <loc.icon className="w-7 h-7 text-primary" strokeWidth={1.5} />
+
+                <div className="p-8 lg:p-10 relative">
+                  <div className="flex items-start gap-6">
+                    <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-500 shadow-xl">
+                      <loc.icon className="w-6 h-6 text-primary" strokeWidth={1.5} />
                     </div>
-                    <div style={{ transform: "translateZ(20px)" }}>
-                      <h3 className="text-3xl font-bold font-serif-display mb-4 text-white tracking-wide group-hover:text-primary transition-colors duration-500">
+                    <div>
+                      <h3 className="text-2xl font-bold font-serif-display mb-3 text-white group-hover:text-primary transition-colors duration-500">
                         {loc.city}
                       </h3>
-                      <div className="space-y-4">
+                      <div className="space-y-3">
                         <p className="flex items-start gap-3 text-sm text-white/70 font-sans-body font-light leading-relaxed">
                           <MapPin className="w-4 h-4 text-primary shrink-0 mt-1" />
                           {loc.address}
                         </p>
-                        <p className="flex items-center gap-3 text-xs text-primary/60 italic pl-7 transition-all duration-500 group-hover:translate-x-3">
+                        <p className="flex items-center gap-3 text-xs text-primary/60 italic pl-7 group-hover:translate-x-2 transition-transform duration-500">
                           <Compass className="w-4 h-4 shrink-0" />
                           {loc.reference}
                         </p>
                       </div>
                     </div>
                   </div>
-                  
-                  <div className="mt-12 pt-8 border-t border-white/5 flex justify-between items-center" style={{ transform: "translateZ(10px)" }}>
+
+                  <div className="mt-8 pt-6 border-t border-white/5 flex justify-between items-center">
                     <div className="flex items-center gap-3">
                       <div className="relative">
                         <div className="w-2 h-2 rounded-full bg-primary animate-ping absolute inset-0" />
@@ -118,14 +117,20 @@ const LocationSection = () => {
                     </div>
                     <div className="flex gap-1.5">
                       {[1, 2, 3].map((dot) => (
-                        <div key={dot} className={`w-1.5 h-1.5 rounded-full ${dot === 1 ? 'bg-primary' : 'bg-white/10 shadow-inner'}`} />
+                        <div
+                          key={dot}
+                          className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${dot === 1 ? "bg-primary scale-125" : "bg-white/10"}`}
+                        />
                       ))}
                     </div>
                   </div>
                 </div>
 
-                {/* Dynamic 3D Shine Effect */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+                {/* Shine */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none rounded-[28px]" />
+
+                {/* Bottom bar */}
+                <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-700 ease-in-out" />
               </motion.div>
             </motion.div>
           ))}
