@@ -1,5 +1,3 @@
-import { useEffect, useRef, useState } from "react";
-import { useScroll, useSpring, motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import TrustSection from "@/components/TrustSection";
@@ -13,63 +11,10 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import OpinionsSection from "@/components/OpinionsSection";
 import LocationSection from "@/components/LocationSection";
 
+// La lógica del cursor y la barra de progreso ahora es global y se movió a src/components/
 const Index = () => {
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const dotRef = useRef<HTMLDivElement>(null);
-  const [isHovering, setIsHovering] = useState(false);
-
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
-
-  useEffect(() => {
-    let rafId: number;
-    let mouseX = 0, mouseY = 0;
-    let curX = 0, curY = 0;
-
-    const move = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-      if (dotRef.current) {
-        dotRef.current.style.left = `${mouseX}px`;
-        dotRef.current.style.top = `${mouseY}px`;
-      }
-    };
-
-    const animate = () => {
-      curX += (mouseX - curX) * 0.12;
-      curY += (mouseY - curY) * 0.12;
-      if (cursorRef.current) {
-        cursorRef.current.style.left = `${curX}px`;
-        cursorRef.current.style.top = `${curY}px`;
-      }
-      rafId = requestAnimationFrame(animate);
-    };
-
-    const onOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      const isInteractive = target.closest("a, button, [role='button'], input, textarea, select");
-      setIsHovering(!!isInteractive);
-    };
-
-    window.addEventListener("mousemove", move, { passive: true });
-    window.addEventListener("mouseover", onOver, { passive: true });
-    rafId = requestAnimationFrame(animate);
-
-    return () => {
-      window.removeEventListener("mousemove", move);
-      window.removeEventListener("mouseover", onOver);
-      cancelAnimationFrame(rafId);
-    };
-  }, []);
-
   return (
     <div className="min-h-screen bg-white relative overflow-hidden">
-      {/* Custom Cursor */}
-      <div ref={cursorRef} className={`custom-cursor ${isHovering ? "hovering" : ""}`} />
-      <div ref={dotRef} className="custom-cursor-dot" />
-
-      {/* Scroll Progress Bar */}
-      <motion.div className="scroll-progress" style={{ scaleX, width: "100%" }} />
 
       {/* Decorative Background Auras — Animated */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
