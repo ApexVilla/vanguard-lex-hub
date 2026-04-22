@@ -9,19 +9,7 @@ import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
 
-import CustomCursor from "./components/CustomCursor.tsx";
-import ScrollProgressBar from "./components/ScrollProgressBar.tsx";
-
-const queryClient = new QueryClient();
-
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
         <ScrollToTop />
-        <CustomCursor />
         <ScrollProgressBar />
         <Routes>
           <Route path="/" element={<Index />} />
