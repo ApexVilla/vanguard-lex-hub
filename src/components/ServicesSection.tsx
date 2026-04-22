@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import { Scale, Heart, Gavel, ShieldAlert, Briefcase, Leaf, Landmark, X, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Scale, Heart, Gavel, ShieldAlert, Briefcase, Leaf, Landmark, X, ArrowRight, CheckCircle2, ShieldCheck, Building, FileText, Home } from "lucide-react";
 import { servicesData, ServiceDetail } from "../data/servicesData";
 
 const services = [
@@ -11,6 +11,10 @@ const services = [
   { icon: Briefcase, title: "Derecho Laboral", desc: "Asesoría corporativa y defensa de los derechos del trabajador." },
   { icon: Leaf, title: "Derecho Ambiental", desc: "Gestión de riesgos normativos y cumplimiento ambiental." },
   { icon: Landmark, title: "Derecho Agrario", desc: "Seguridad jurídica en tenencia de tierras y regulaciones del sector." },
+  { icon: ShieldCheck, title: "Derecho Militar", desc: "Defensa legal en justicia militar y procesos disciplinarios." },
+  { icon: Building, title: "Derecho Mercantil", desc: "Constitución de empresas, actas y asesoría corporativa." },
+  { icon: FileText, title: "Derecho Administrativo", desc: "Gestión ante entes públicos y defensa ante sanciones." },
+  { icon: Home, title: "Derecho Inmobiliario", desc: "Gestión de compraventa y regularización de títulos." },
 ];
 
 const ServicesSection = () => {

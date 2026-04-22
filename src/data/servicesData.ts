@@ -1,4 +1,4 @@
-import { LucideIcon, Scale, Heart, Gavel, ShieldAlert, Briefcase, Leaf, Landmark } from "lucide-react";
+import { LucideIcon, Scale, Heart, Gavel, ShieldAlert, Briefcase, Leaf, Landmark, ShieldCheck, Building, FileText, Home } from "lucide-react";
 
 export interface ServiceDetail {
   title: string;
@@ -154,6 +154,144 @@ export const servicesData: Record<string, ServiceDetail> = {
         "Estrategias de defensa sólidas ante cualquier litigio en tribunales laborales.",
         "Acompañamiento constante y respuesta oportuna a todas sus inquietudes.",
         "Compromiso con la justicia social y el equilibrio en la relación patronal-obrera."
+      ]
+    }
+  },
+  "Derecho Ambiental": {
+    title: "Derecho Ambiental",
+    icon: Leaf,
+    intro: "Ofrecemos asesoría integral en el cumplimiento de la normativa ambiental venezolana, garantizando que su actividad se desarrolle de manera sostenible y legal.",
+    solutions: {
+      title: "Gestión Ambiental Legal:",
+      items: [
+        "Permisología: Obtención de autorizaciones y registros ante el Ministerio del Ecosocialismo.",
+        "Auditorías Legales: Evaluación del cumplimiento de leyes y reglamentos ambientales.",
+        "Defensa Sancionatoria: Representación ante procedimientos administrativos por supuestas infracciones.",
+        "Evaluación de Impacto: Asesoría en procesos de control previo y ocupación del territorio.",
+        "Derecho Penal Ambiental: Defensa técnica en delitos contra el medio ambiente."
+      ]
+    },
+    whyChooseUs: {
+      title: "Compromiso Sostenible:",
+      items: [
+        "Expertos en la Ley Orgánica del Ambiente y normativa técnica especializada.",
+        "Prevención de riesgos legales y pasivos ambientales.",
+        "Seguridad jurídica en el desarrollo de sus proyectos industriales o comerciales."
+      ]
+    }
+  },
+  "Derecho Agrario": {
+    title: "Derecho Agrario",
+    icon: Landmark,
+    intro: "Brindamos seguridad jurídica a los productores venezolanos, protegiendo la tenencia de la tierra y garantizando el desarrollo de la actividad agropecuaria.",
+    solutions: {
+      title: "Asesoría Agraria Integral:",
+      items: [
+        "Regularización de Tierras: Trámites ante el INTI para títulos y certificaciones.",
+        "Conflictos de Tenencia: Procesos de desocupación y defensa de la propiedad agraria.",
+        "Contratos Agrarios: Redacción de contratos de asociación, arrendamiento y comodato rural.",
+        "Procedimientos Administrativos: Defensa ante rescates y expropiaciones bajo la Ley de Tierras.",
+        "Crédito Agrario: Asesoría legal en financiamiento y garantías del sector."
+      ]
+    },
+    whyChooseUs: {
+      title: "Protección al Productor:",
+      items: [
+        "Amplia experiencia en la dinámica del campo venezolano y su legislación.",
+        "Defensa técnica especializada ante tribunales agrarios.",
+        "Enfoque en la estabilidad jurídica de su unidad de producción."
+      ]
+    }
+  },
+  "Derecho Militar": {
+    title: "Derecho Militar",
+    icon: ShieldCheck,
+    intro: "Ofrecemos representación técnica especializada en el ámbito de la justicia militar y administrativa castrense en Venezuela.",
+    solutions: {
+      title: "Defensa Militar Especializada:",
+      items: [
+        "Procesos Penales Militares: Defensa técnica ante tribunales militares de control, juicio y ejecución.",
+        "Procedimientos Disciplinarios: Asesoría y defensa en consejos de investigación y faltas disciplinarias.",
+        "Derecho Administrativo Militar: Reclamos sobre ascensos, disponibilidad y beneficios.",
+        "Retiro y Pensiones: Asesoría legal en el proceso de desincorporación y seguridad social militar.",
+        "Amparos Constitucionales: Protección de derechos fundamentales dentro de la institución militar."
+      ]
+    },
+    whyChooseUs: {
+      title: "Experiencia Castrense:",
+      items: [
+        "Conocimiento profundo del Código Orgánico de Justicia Militar y leyes conexas.",
+        "Representación con el máximo rigor institucional y profesionalismo.",
+        "Defensa del debido proceso en la jurisdicción militar."
+      ]
+    }
+  },
+  "Derecho Mercantil": {
+    title: "Derecho Mercantil",
+    icon: Building,
+    intro: "Brindamos seguridad jurídica a su actividad comercial mediante una gestión corporativa impecable y cumplimiento legal preventivo.",
+    solutions: {
+      title: "Gestión Mercantil y Corporativa:",
+      items: [
+        "Constitución de Sociedades: Creación de compañías anónimas, firmas personales y sociedades civiles.",
+        "Gobierno Corporativo: Actas de asambleas, aumentos de capital y cambios de junta directiva.",
+        "Contratos Comerciales: Redacción y revisión de acuerdos de franquicia, distribución y corretaje.",
+        "Propiedad Intelectual: Registro de marcas, patentes y derechos de autor.",
+        "Litigio Mercantil: Representación en cobros de bolívares, quiebras y disputas entre socios."
+      ]
+    },
+    whyChooseUs: {
+      title: "Impulso a su Empresa:",
+      items: [
+        "Visión integral del derecho de los negocios en Venezuela.",
+        "Agilidad en trámites ante registros mercantiles.",
+        "Asesoría estratégica para el crecimiento y protección de su capital corporativo."
+      ]
+    }
+  },
+  "Derecho Administrativo": {
+    title: "Derecho Administrativo",
+    icon: FileText,
+    intro: "Asesoramos en la compleja relación entre el ciudadano o empresa y el Estado venezolano, garantizando el respeto al debido proceso.",
+    solutions: {
+      title: "Soluciones ante la Administración:",
+      items: [
+        "Recursos Administrativos: Impugnación de actos ante órganos públicos (jerárquicos y de reconsideración).",
+        "Contencioso Administrativo: Demandas contra el Estado por nulidad de actos o responsabilidad patrimonial.",
+        "Contrataciones Públicas: Asesoría en licitaciones y contratos con entes del Estado.",
+        "Infracciones y Sanciones: Defensa ante multas y cierres aplicados por organismos reguladores.",
+        "Expropiaciones: Representación y defensa del justo valor en procesos de afectación de bienes."
+      ]
+    },
+    whyChooseUs: {
+      title: "Defensa frente al Estado:",
+      items: [
+        "Especialistas en la Ley Orgánica de Procedimientos Administrativos (LOPA).",
+        "Control de legalidad de la actividad administrativa.",
+        "Protección efectiva contra el abuso de poder y la desviación de ley."
+      ]
+    }
+  },
+  "Derecho Inmobiliario": {
+    title: "Derecho Inmobiliario",
+    icon: Home,
+    intro: "Aseguramos su patrimonio mediante la verificación técnica y el acompañamiento experto en transacciones de bienes raíces.",
+    solutions: {
+      title: "Seguridad Inmobiliaria:",
+      items: [
+        "Compraventa: Acompañamiento en la negociación y redacción de documentos de venta y preventa.",
+        "Investigación de Títulos: Verificación de la cadena de titulación y gravámenes ante registros públicos.",
+        "Condominios: Asesoría a juntas de condominio y resolución de disputas de propiedad horizontal.",
+        "Arrendamiento Inmobiliario: Gestión legal según la ley de vivienda y locales comerciales.",
+        "Desalojos y Reivindicaciones: Procesos legales para la recuperación de posesión de inmuebles."
+      ]
+    },
+    whyChooseUs: {
+      title: "Protección Patrimonial:",
+      items: [
+        "Máxima seguridad en inversiones inmobiliarias.",
+        "Conocimiento actualizado de la normativa habitacional y comercial venezolana.",
+        "Prevención de fraudes y estafas en el mercado inmobiliario."
       ]
     }
   }
