@@ -8,7 +8,16 @@ import OpinionDetail from "./pages/OpinionDetail.tsx";
 import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import ScrollToTop from "./components/ScrollToTop.tsx";
+import ScrollProgressBar from "./components/ScrollProgressBar.tsx";
 
+const queryClient = new QueryClient();
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter>
         <ScrollToTop />
         <ScrollProgressBar />
         <Routes>
