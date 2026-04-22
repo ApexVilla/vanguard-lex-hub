@@ -1,6 +1,45 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
 import { MapPin, Building2, Landmark, Compass } from "lucide-react";
+
+const ImageCarousel = ({ images, city }: { images: string[]; city: string }) => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [images]);
+
+  return (
+    <div className="w-full h-full relative overflow-hidden">
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={images[index]}
+          src={images[index]}
+          alt={`${city} - Foto ${index + 1}`}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full h-full object-cover grayscale-[20%]"
+        />
+      </AnimatePresence>
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-30">
+        {images.map((_, i) => (
+          <div
+            key={i}
+            className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${
+              index === i ? "bg-primary w-4" : "bg-white/30"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
 
 const LocationSection = () => {
   const ref = useRef(null);
@@ -11,7 +50,7 @@ const LocationSection = () => {
       city: "Barinas",
       address: "Avenida Cuatricentenaria, Edificio Orchán, Oficina N° 7",
       reference: "Diagonal al Palacio de Justicia del estado Barinas",
-      image: "/LOCA1.png",
+      images: ["/barina2.png", "/LOCA1.png"],
       type: "Sede Principal",
       icon: Landmark,
     },
@@ -19,7 +58,7 @@ const LocationSection = () => {
       city: "Alto Barinas",
       address: "Alto Barinas Norte",
       reference: "Cerca del Circuito Judicial del estado Barinas",
-      image: "/LOCA1.1.png",
+      images: ["/barinas.png"],
       type: "Oficina Ejecutiva",
       icon: Building2,
     },
@@ -59,24 +98,19 @@ const LocationSection = () => {
             >
               <motion.div
                 whileHover={{
-                  rotateY: idx === 0 ? 6 : -6,
-                  rotateX: 3,
-                  scale: 1.03,
+                  rotateY: idx === 0 ? 4 : -4,
+                  rotateX: 2,
+                  scale: 1.02,
                 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 style={{ transformStyle: "preserve-3d" }}
                 className="relative overflow-hidden rounded-[28px] border border-primary/20 bg-navy/85 backdrop-blur-xl shadow-[0_40px_80px_rgba(0,0,0,0.6)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.6),0_0_40px_hsl(var(--gold)/0.15)] transition-all duration-700"
               >
                 <div className="aspect-[16/10] overflow-hidden relative">
-                  <motion.img
-                    src={loc.image}
-                    alt={loc.city}
-                    whileHover={{ scale: 1.12 }}
-                    transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-1000"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/20 to-transparent" />
-                  <div className="absolute top-6 left-6 z-20">
+                  <ImageCarousel images={loc.images} city={loc.city} />
+                  
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/10 to-transparent pointer-events-none" />
+                  <div className="absolute top-6 left-6 z-40">
                     <span className="px-5 py-2 rounded-xl bg-primary text-[10px] font-bold uppercase tracking-[0.2em] text-white shadow-[0_10px_20px_rgba(0,0,0,0.3)]">
                       {loc.type}
                     </span>
