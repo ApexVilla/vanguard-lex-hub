@@ -24,11 +24,6 @@ const AboutSection = () => {
 
   return (
     <section id="nosotros" className="py-24 lg:py-48 bg-white relative overflow-hidden" ref={containerRef}>
-      {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50 -skew-x-12 translate-x-1/2 pointer-events-none hidden lg:block" />
-      {/* Decorative horizontal rule */}
-      <div className="absolute top-1/2 left-0 w-1/4 h-px bg-gradient-to-r from-primary/20 to-transparent" />
-
       <div className="container mx-auto px-4 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-24 items-center">
 
